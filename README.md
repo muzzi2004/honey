@@ -17,6 +17,6 @@ ALL VM(VPS)
 Ubuntu 22
 apt install docker.io docker-compose net-tools jq mc htop 
 
-docker-compose up -d {manifest_files_roles}
+docker-compose up -d {manifest_role_file}
 
 # Debug

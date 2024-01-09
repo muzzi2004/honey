@@ -12,7 +12,7 @@ services:
     volumes:
        - zabbix-postgres:/data/zabbix-postgres
     ports:
-      - "195.2.85.41:5432:5432"
+      - "${IP_TUN}:5432:5432"
     networks:
       - zabbix-network
     restart: unless-stopped
@@ -27,7 +27,7 @@ services:
     volumes:
        - zabbix-server:/data/zabbix-server
     ports:
-      - "195.2.85.41:10051:10051"
+      - "${IP_TUN}:10051:10051"
     networks:
       - zabbix-network
     restart: unless-stopped
@@ -44,8 +44,8 @@ services:
     volumes:
        - zabbix-web:/data/zabbix-web
     ports:
-      - "195.2.85.41:80:8080"
-      - ""
+      - "${IP_TUN}:80:8080"
+      - "${IP_TUN}:443:8443"
     networks:
       - zabbix-network
     restart: unless-stopped
